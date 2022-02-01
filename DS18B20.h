@@ -3,7 +3,11 @@
 
 #include <Arduino.h>
 #include <inttypes.h>
+#ifdef __AVR__
 #include <avr/pgmspace.h>
+#elif defined(ESP8266) || defined(ESP32)
+#include <pgmspace.h>
+#endif
 #include <OneWire.h>
 
 #define TEMP_ERROR -273.15f
